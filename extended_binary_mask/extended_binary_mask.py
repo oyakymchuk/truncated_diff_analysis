@@ -9,14 +9,14 @@ class binary_string:
             else:
                 self.value = '0'*(length - len(bin_val)) + bin_val
         else:
-            if re.search(f"[0,1]{{{len(value)}}}", value):
+            if re.search("[0,1]{{{}}}".format(len(value)), value):
                 self.value = '0'*(length - len(value)) + value
             else:
                 raise ValueError("Wrong binary string!")
 
 class extended_binary_mask:
     def __init__(self, string):
-        if re.search(f"[0,1,*]{{{len(string)}}}", string):
+        if re.search("[0,1,*]{{{}}}".format(len(string)), string):
             self.value = string
         else:
             raise ValueError("Wrong extended binary mask!")
