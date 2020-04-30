@@ -78,7 +78,7 @@ V_n = list(range(2 ** n))
 time_start = time.time()
 all_masks = [''.join(i) for i in list(itertools.product(mask_elements, repeat=n))]
 print('All masks built.')
-print(f'Time: {time.time() - time_start}')
+print("Time: {}".format(time.time() - time_start))
 
 # calculate all possible alpha-beta pairs
 time_start = time.time()
@@ -87,7 +87,7 @@ alpha_beta_pairs = list(itertools.product(all_masks, repeat=2))
 #     for beta in all_masks:
 #         alpha_beta_pairs.append(tuple([alpha, beta]))
 print('All possible alpha-beta pairs calculated.')
-print(f'Time: {time.time() - time_start}')
+print('Time: {}'.format(time.time() - time_start))
 
 #precalculate delta for each mask
 time_start = time.time()
@@ -95,7 +95,7 @@ precalculated_delta_set = dict()
 for mask in all_masks:
     precalculated_delta_set[mask] = create_delta_set(extended_binary_mask(mask))
 print('Delta sets precalculated.')
-print(f'Time: {time.time() - time_start}')
+print('Time: {}'.format(time.time() - time_start))
 
 s_box_dict = {
               'kalyna_1': [168, 67, 95, 6, 107, 117, 108, 89, 113, 223, 135, 149, 23, 240, 216, 9, 109, 243, 29, 203, 201, 77, 44, 175, 121, 224, 151, 253, 111, 75, 69, 57, 62, 221, 163, 79, 180, 182, 154, 14, 31, 191, 21, 225, 73, 210, 147, 198, 146, 114, 158, 97, 209, 99, 250, 238, 244, 25, 213, 173, 88, 164, 187, 161, 220, 242, 131, 55, 66, 228, 122, 50, 156, 204, 171, 74, 143, 110, 4, 39, 46, 231, 226, 90, 150, 22, 35, 43, 194, 101, 102, 15, 188, 169, 71, 65, 52, 72, 252, 183, 106, 136, 165, 83, 134, 249, 91, 219, 56, 123, 195, 30, 34, 51, 36, 40, 54, 199, 178, 59, 142, 119, 186, 245, 20, 159, 8, 85, 155, 76, 254, 96, 92, 218, 24, 70, 205, 125, 33, 176, 63, 27, 137, 255, 235, 132, 105, 58, 157, 215, 211, 112, 103, 64, 181, 222, 93, 48, 145, 177, 120, 17, 1, 229, 0, 104, 152, 160, 197, 2, 166, 116, 45, 11, 162, 118, 179, 190, 206, 189, 174, 233, 138, 49, 28, 236, 241, 153, 148, 170, 246, 38, 47, 239, 232, 140, 53, 3, 212, 127, 251, 5, 193, 94, 144, 32, 61, 130, 247, 234, 10, 13, 126, 248, 80, 26, 196, 7, 87, 184, 60, 98, 227, 200, 172, 82, 100, 16, 208, 217, 19, 12, 18, 41, 81, 185, 207, 214, 115, 141, 129, 84, 192, 237, 78, 68, 167, 42, 133, 37, 230, 202, 124, 139, 86, 128]
@@ -125,7 +125,7 @@ for s_box_name in s_box_dict:
     time_start = time.time()
     curent_s_box = S_box(n, name=s_box_name, s_box=s_box_dict[s_box_name])
     a = create_table(curent_s_box, V_n, save=True)
-    print(f'Time: {time.time() - time_start}')
+    print('Time: {}'.format(time.time() - time_start))
     # for i in a:
     #     if a[i]:
             # print(i, '---', a[i])
