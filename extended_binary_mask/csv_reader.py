@@ -1,8 +1,8 @@
 import csv
-reader = csv.reader(open('kalyna_1.csv', 'r'))
-i=0
-for row in reader:
-    print(row)
-    i+=1
-    if i == 10000:
-        break
+for j in range(3,9):
+    reader = csv.reader(open(f'kalyna_{j}.csv', 'r'))
+    i=0
+# print(len(reader))
+    for row in reader:
+        i+=1
+    print(i)

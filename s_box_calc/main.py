@@ -88,13 +88,13 @@ def create_table(s_box_n_bit, V_n, save=False):
             # res[(alpha, beta)] = set(temp_x_list)
 
     for i in max_DP_table:
-        if TD_table[i] and len(delta_alpha_table[i]) > 1:
-            result_table[i] = [len(D_table[i])]
-            result_table[i].append(max_DP_table[i])
-            result_table[i].append(len(TD_table[i]))
-            result_table[i].append(TD_table[i])
-            result_table[i].append(delta_alpha_table[i])
-            result_table[i].append(delta_beta_table[i])
+        # if TD_table[i] and len(delta_alpha_table[i]) > 1:
+        result_table[i] = [len(D_table[i])]
+        result_table[i].append(max_DP_table[i])
+        result_table[i].append(len(TD_table[i]))
+        result_table[i].append(TD_table[i])
+        result_table[i].append(delta_alpha_table[i])
+        result_table[i].append(delta_beta_table[i])
 
     res = dict()
     for i in result_table:
@@ -144,4 +144,3 @@ for s_box_name in s_box_dict:
     curent_s_box = S_box(n, name=s_box_name, s_box=s_box_dict[s_box_name])
     create_table(curent_s_box, V_n, save=True)
     print(f'Time: {time.time() - time_start}')
-
